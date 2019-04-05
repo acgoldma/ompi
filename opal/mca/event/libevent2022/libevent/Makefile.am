@@ -188,7 +188,8 @@ if HTTP
 CORE_SRC += http.c
 endif
 if DNS
-CORE_SRC += evdns.c
+# Note: evdns.c removed due to security vulnerability.  
+#CORE_SRC += evdns.c
 endif
 if RPC
 CORE_SRC += evrpc.c
