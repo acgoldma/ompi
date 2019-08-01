@@ -4,7 +4,7 @@ RPM_NAME=openmpi
 rm -rf BUILD RPMS SOURCES SPECS SRPMS BUILDROOT
 
 ./contrib/dist/wfr-release.sh
-./contrib/dist/make_tarball --greekonly --distdir $PWD
+./contrib/dist/make_tarball --no-git-update --greekonly --distdir $PWD
 
 mkdir -p ./{BUILD,RPMS,SOURCES,SPECS,SRPMS,BUILDROOT}
 dir=$PWD
