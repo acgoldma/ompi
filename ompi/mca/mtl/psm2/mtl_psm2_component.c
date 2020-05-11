@@ -255,6 +255,13 @@ ompi_mtl_psm2_component_init(bool enable_progress_threads,
     glob_t globbuf = {0};
 #endif
 
+	if (enable_mpi_threads) {
+		opal_show_help("help-mtl-psm2.txt",
+			"mpi thread multiple not supported",
+			true);
+		return NULL;
+	}
+
     /* Compute the total number of processes on this host and our local rank
      * on that node. We need to provide PSM2 with these values so it can
      * allocate hardware contexts appropriately across processes.
