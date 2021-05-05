@@ -33,6 +33,9 @@ fi
 #RELEASE=`git describe --tags --long --match="$TAG*" | sed -r -e "s/$TAG[0-9]+(\.[0-9]+)+-[0-9]+\.[0-9]+-//" -e 's/-g.*$//'`
 RELEASE=`git describe --tags --long --match="$TAG*" | sed -r -e "s/$TAG[0-9]+(\.[0-9]+)+-//" -e 's/-g.*$//'`
 
+if ! [[ $RELEASE =~ ^[0-9]+$ ]]; then
+	RELEASE=`git describe --match "v*" | cut -d'-' -f2`
+fi
 echo "WFR commit number: $RELEASE"
 
 sed -i $SPEC -r -e "s/Release: [0-9]+/Release: $RELEASE/"
